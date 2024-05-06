@@ -32,6 +32,11 @@ Visual Studio creates a new .NET Aspire solution that consists of the following 
 
 ## Configure the App Host project
 
+Update the `AspireRedis.AppHost.csproj` file and include the Aspire.Hosting.Redis package.
+```
+<PackageReference Include="Aspire.Hosting.Redis" Version="8.0.0-preview.6.24214.1" />
+```
+
 Update the _Program.cs_ file of the `AspireRedis.AppHost` project to match the following code:
 
 ```csharp
