@@ -25,10 +25,11 @@ This article explores how to use two different types of ASP.NET Core caching usi
 
 Visual Studio creates a new .NET Aspire solution that consists of the following projects:
 
-- **AspireRedis.Web** - A Blazor UI project with default .NET Aspire configurations.
 - **AspireRedis.ApiService** - A Minimal API with default .NET Aspire configurations that provides the frontend with data.
 - **AspireRedis.AppHost** - An orchestrator project designed to connect and configure the different projects and services of your app.
 - **AspireRedis.ServiceDefaults** - A .NET Aspire shared project to manage configurations that are reused across the projects in your solution related to [resilience](https://learn.microsoft.com/en-us/dotnet/core/resilience/http-resilience), [service discovery](https://learn.microsoft.com/en-us/dotnet/aspire/service-discovery/overview), and [telemetry](https://learn.microsoft.com/en-us/dotnet/aspire/telemetry).
+- **AspireRedis.Web** - A Blazor UI project with default .NET Aspire configurations.
+
 
 ## Configure the App Host project
 
