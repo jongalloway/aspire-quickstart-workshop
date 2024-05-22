@@ -204,7 +204,12 @@ Use the following Razor markup to create a basic form, replacing the contents of
     private SupportTicket Ticket { get; set; } = new();
     private List<SupportTicket> Tickets = [];
 
-    private void ClearForm() => Ticket = new();
+    private void ClearForm()
+    {
+        Ticket = new();
+        StateHasChanged();
+
+    }
 
     protected override async Task OnInitializedAsync()
     {
