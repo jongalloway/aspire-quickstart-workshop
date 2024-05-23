@@ -8,8 +8,11 @@ Cloud-native apps often require various types of scalable caching solutions to i
 
 This article explores how to use two different types of ASP.NET Core caching using .NET Aspire and Redis:
 
-- **[Output caching](https://learn.microsoft.com/en-us/aspnet/core/performance/caching/output)**: A configurable, extensible caching method for storing entire HTTP responses for future requests.
-- **[Distributed caching](https://learn.microsoft.com/en-us/aspnet/core/performance/caching/distributed)**: A cache shared by multiple app servers that allows you to cache specific pieces of data. A distributed cache is typically maintained as an external service to the app servers that access it and can improve the performance and scalability of an ASP.NET Core app.
+- **[Output caching](https://learn.microsoft.com/aspnet/core/performance/caching/output)**: A configurable, extensible caching method for storing entire HTTP responses for future requests.
+- **[Distributed caching](https://learn.microsoft.com/aspnet/core/performance/caching/distributed)**: A cache shared by multiple app servers that allows you to cache specific pieces of data. A distributed cache is typically maintained as an external service to the app servers that access it and can improve the performance and scalability of an ASP.NET Core app.
+
+> [!NOTE]  
+> This tutorial is based on the [Implement caching with .NET Aspire components](https://learn.microsoft.com/dotnet/aspire/caching/caching-components) tutorial in Microsoft Learn.
 
 ## Create the project
 
@@ -27,7 +30,7 @@ Visual Studio creates a new .NET Aspire solution that consists of the following 
 
 - **AspireRedis.ApiService** - A Minimal API with default .NET Aspire configurations that provides the frontend with data.
 - **AspireRedis.AppHost** - An orchestrator project designed to connect and configure the different projects and services of your app.
-- **AspireRedis.ServiceDefaults** - A .NET Aspire shared project to manage configurations that are reused across the projects in your solution related to [resilience](https://learn.microsoft.com/en-us/dotnet/core/resilience/http-resilience), [service discovery](https://learn.microsoft.com/en-us/dotnet/aspire/service-discovery/overview), and [telemetry](https://learn.microsoft.com/en-us/dotnet/aspire/telemetry).
+- **AspireRedis.ServiceDefaults** - A .NET Aspire shared project to manage configurations that are reused across the projects in your solution related to [resilience](https://learn.microsoft.com/dotnet/core/resilience/http-resilience), [service discovery](https://learn.microsoft.com/dotnet/aspire/service-discovery/overview), and [telemetry](https://learn.microsoft.com/dotnet/aspire/telemetry).
 - **AspireRedis.Web** - A Blazor UI project with default .NET Aspire configurations.
 
 
@@ -77,7 +80,7 @@ Configuring connection string with this method, while functional, requires dupli
     dotnet add package Aspire.StackExchange.Redis.OutputCaching --prerelease
     ```
 
-1. In the _Program.cs_ file of the `AspireRedis.Web` Blazor project, immediately after the line `var builder = WebApplication.CreateBuilder(args);`, add a call to the [AddRedisOutputCache](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.hosting.aspireredisoutputcacheextensions.addredisoutputcache) extension method:
+1. In the _Program.cs_ file of the `AspireRedis.Web` Blazor project, immediately after the line `var builder = WebApplication.CreateBuilder(args);`, add a call to the [AddRedisOutputCache](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.aspireredisoutputcacheextensions.addredisoutputcache) extension method:
 
     ```csharp
     builder.AddRedisOutputCache("cache");
@@ -105,13 +108,13 @@ Configuring connection string with this method, while functional, requires dupli
 
 ## Configure the API with distributed caching
 
-1. Add the [.NET Aspire StackExchange Redis distributed caching](https://learn.microsoft.com/en-us/dotnet/aspire/caching/stackexchange-redis-output-caching-component) component packages to your `AspireRedis.ApiService` app:
+1. Add the [.NET Aspire StackExchange Redis distributed caching](https://learn.microsoft.com/dotnet/aspire/caching/stackexchange-redis-output-caching-component) component packages to your `AspireRedis.ApiService` app:
 
     ```dotnetcli
     dotnet add package Aspire.StackExchange.Redis.DistributedCaching --prerelease
     ```
 
-1. Towards the top of the _Program.cs_ file, add a call to [AspireRedisDistributedCacheExtensions.AddRedisDistributedCache](https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.hosting.aspireredisdistributedcacheextensions.addredisdistributedcache):
+1. Towards the top of the _Program.cs_ file, add a call to [AspireRedisDistributedCacheExtensions.AddRedisDistributedCache](https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.aspireredisdistributedcacheextensions.addredisdistributedcache):
 
     ```csharp
     builder.AddRedisDistributedCache("cache");

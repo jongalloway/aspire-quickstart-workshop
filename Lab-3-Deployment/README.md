@@ -8,20 +8,23 @@
 - Deploy the apps to an Azure Container Apps environment
 - View application console logs to troubleshoot application issues
 
+> [!NOTE]  
+> This tutorial is based on the [Deploy a .NET Aspire app to Azure Container Apps using Visual Studio](https://learn.microsoft.com/dotnet/aspire/deployment/azure/aca-deployment-visual-studio) and [Deploy a .NET Aspire app to Azure Container Apps](https://learn.microsoft.com/dotnet/aspire/deployment/azure/aca-deployment) tutorials in Microsoft Learn.
+
 ## Create a new .NET Aspire project using the Aspire Starter Application template
 
 Visual Studio provides .NET Aspire project templates that handle some initial setup configurations for you. Complete the following steps to create a project for this quickstart:
 
 1. At the top of Visual Studio, navigate to **File** > **New** > **Project**.
 1. In the dialog window, search for _Aspire_ and select **.NET Aspire Starter Application**. Select **Next**.
-    [![A screenshot of the .NET Aspire Starter Application template.](https://learn.microsoft.com/en-us/dotnet/aspire/docs/media/aspire-templates.png)](https://learn.microsoft.com/en-us/dotnet/aspire/docs/media/aspire-templates.png#lightbox)
+    [![A screenshot of the .NET Aspire Starter Application template.](https://learn.microsoft.com/dotnet/aspire/docs/media/aspire-templates.png)](https://learn.microsoft.com/dotnet/aspire/docs/media/aspire-templates.png#lightbox)
 1. On the **Configure your new project** screen:
     - Enter a **Project Name** of _AspireSample_.
     - Leave the rest of the values at their defaults and select **Next**.
 1. On the **Additional information** screen:
     - Make sure **.NET 8.0 (Long Term Support)** is selected.
     - Ensure that **Use Redis for caching (requires a supported container runtime)** is checked and select **Create**.
-    - Optionally, you can select **Create a tests project**. For more information, see [Testing .NET Aspire apps](https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/testing).
+    - Optionally, you can select **Create a tests project**. For more information, see [Testing .NET Aspire apps](https://learn.microsoft.com/dotnet/aspire/fundamentals/testing).
 
 Visual Studio creates a new solution that is structured to use .NET Aspire.
 
@@ -35,16 +38,16 @@ Alternatively, you can create the starter project from the commandline using the
 
 1. In the solution explorer, right-click on the **.AppHost** project and select **Publish** to open the **Publish** dialog.
 1. Select **Azure Container Apps for .NET Aspire** as the publishing target.
-    ![A screenshot of the publishing dialog workflow.](https://learn.microsoft.com/en-us/dotnet/aspire/docs/deployment/media/visual-studio-deploy.png)
+    ![A screenshot of the publishing dialog workflow.](https://learn.microsoft.com/dotnet/aspire/docs/deployment/media/visual-studio-deploy.png)
 1. On the **AzDev Environment** step, select your desired **Subscription** and **Location** values and then enter an **Environment name** such as _aspire-vs_. The environment name determines the naming of Azure Container Apps environment resources.
 1. Select **Finish** to close the dialog workflow and view the deployment environment summary.
 1. Select **Publish** to provision and deploy the resources on Azure. This process may take several minutes to complete. Visual Studio provides status updates on the deployment progress.
 1. When the publish completes, Visual Studio displays the resource URLs at the bottom of the environment screen. Use these links to view the various deployed resources. Select the **webfrontend** URL to open a browser to the deployed app.
-    ![A screenshot of the completed publishing process and deployed resources.](https://learn.microsoft.com/en-us/dotnet/aspire/docs/deployment/media/visual-studio-deploy-complete.png)
+    ![A screenshot of the completed publishing process and deployed resources.](https://learn.microsoft.com/dotnet/aspire/docs/deployment/media/visual-studio-deploy-complete.png)
 
 ## Install the Azure Developer CLI
 
-The process for installing `azd` varies based on your operating system, but it is widely available via `winget`, `brew`, `apt`, or directly via `curl`. To install `azd`, see [Install Azure Developer CLI](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/install-azd).
+The process for installing `azd` varies based on your operating system, but it is widely available via `winget`, `brew`, `apt`, or directly via `curl`. To install `azd`, see [Install Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd).
 
 ### Initialize the template
 
@@ -55,7 +58,7 @@ The process for installing `azd` varies based on your operating system, but it i
             azd init
     ```
 
-    For more information on the `azd init` command, see [azd init](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/reference#azd-init).
+    For more information on the `azd init` command, see [azd init](https://learn.microsoft.com/azure/developer/azure-developer-cli/reference#azd-init).
 1. If this is the first time you've initialized the app, `azd` prompts you for the environment name:
 
     ```console
@@ -64,7 +67,7 @@ The process for installing `azd` varies based on your operating system, but it i
         ? Enter a new environment name: [? for help]
     ```
 
-    Enter the desired environment name to continue. For more information on managing environments with `azd`, see [azd env](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/reference#azd-env).
+    Enter the desired environment name to continue. For more information on managing environments with `azd`, see [azd env](https://learn.microsoft.com/azure/developer/azure-developer-cli/reference#azd-env).
 1. Select **Use code in the current directory** when `azd` prompts you with two app initialization options.
 
     ```console
@@ -117,11 +120,11 @@ The process for installing `azd` varies based on your operating system, but it i
 - _.azure/aspireazddev/.env_: Contains environment specific overrides.
 - _.azure/aspireazddev/config.json_: Configuration file that informs `azd` which services should have a public endpoint in this environment.
 
-[](https://learn.microsoft.com/en-us/dotnet/aspire/deployment/azure/aca-deployment?tabs=visual-studio%2Cinstall-az-windows%2Cpowershell&pivots=azure-azd#deploy-the-app)
+[](https://learn.microsoft.com/dotnet/aspire/deployment/azure/aca-deployment?tabs=visual-studio%2Cinstall-az-windows%2Cpowershell&pivots=azure-azd#deploy-the-app)
 
 ### Deploy the app
 
-Once `azd` is initialized, the provisioning and deployment process can be executed as a single command, [azd up](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/reference#azd-up).
+Once `azd` is initialized, the provisioning and deployment process can be executed as a single command, [azd up](https://learn.microsoft.com/azure/developer/azure-developer-cli/reference#azd-up).
 
 ```console
 
