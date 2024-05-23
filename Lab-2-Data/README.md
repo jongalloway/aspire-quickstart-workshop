@@ -6,6 +6,9 @@ In this tutorial, you create an ASP.NET Core app that uses a .NET Aspire Entity 
 > - Add a .NET Aspire component to connect to SQL Server
 > - Configure and use .NET Aspire Component features to read and write from the database
 
+> [!NOTE]  
+> This tutorial is based on the [Connect an ASP.NET Core app to SQL Server using .NET Aspire and Entity Framework Core](https://learn.microsoft.com/dotnet/aspire/database/sql-server-components) tutorial in Microsoft Learn.
+
 ## Create the sample solution
 
 1. At the top of Visual Studio, navigate to **File** > **New** > **Project**.
@@ -93,7 +96,7 @@ Your *AspireSQLEFCore* project is now set up to use .NET Aspire components. Here
 
 ## Configure the .NET Aspire component
 
-In the *Program.cs* file of the *AspireSQLEFCore* project, add a call to the `AddSqlServerDbContext` extension method after the creation of the `builder` but before the call to `AddServiceDefaults`. For more information, see [.NET Aspire service defaults](https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/service-defaults). Provide the name of your connection string as a parameter.
+In the *Program.cs* file of the *AspireSQLEFCore* project, add a call to the `AddSqlServerDbContext` extension method after the creation of the `builder` but before the call to `AddServiceDefaults`. For more information, see [.NET Aspire service defaults](https://learn.microsoft.com/dotnet/aspire/fundamentals/service-defaults). Provide the name of your connection string as a parameter.
 
 ```csharp
 using AspireSQLEFCore;
@@ -260,7 +263,7 @@ The sample app is now ready for testing. Verify that the submitted form data is 
 1. Select the run button at the top of Visual Studio (or <kbd>F5</kbd>) to launch your .NET Aspire app dashboard in the browser.
 1. On the projects page, in the **AspireSQLEFCore** row, click the link in the **Endpoints** column to open the UI of your app.
 
-    ![A screenshot showing the home page of the .NET Aspire support application.](https://learn.microsoft.com/en-us/dotnet/aspire/docs/database/media/app-home-screen.png)
+    ![A screenshot showing the home page of the .NET Aspire support application.](https://learn.microsoft.com/dotnet/aspire/docs/database/media/app-home-screen.png)
 
 1. Enter sample data into the `Title` and `Description` form fields.
 1. Select the **Submit** button, and the form submits the support ticket for processing — and clears the form.
