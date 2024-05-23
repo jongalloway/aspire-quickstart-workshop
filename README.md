@@ -10,6 +10,7 @@ In this workshop, you'll learn the basics of .NET Aspire through three quickstar
 
 This workshop is designed to be self-paced, but you can also use it in an instructor-led workshop session. The focus is on really learning the fundamentals before moving on to more complex applications. This workshop is designed to be completed in 2-3 hours, and to prepare you for the [.NET eShop - App Building Workshop](https://github.com/dotnet-presentations/eshop-app-workshop).
 
+> [!NOTE]  
 > This content is based on quickstarts in the [.NET Aspire documentation](https://learn.microsoft.com/dotnet/aspire/) in Microsoft Learn. I've pulled my favorite beginner quickstart tutorials into this repo to make it simple to figure out how to get started, and simplified them in some cases.
 
 ## Setup
